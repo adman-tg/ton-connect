@@ -38,9 +38,14 @@ function WalletActions() {
   }
 
   return (
-    <div className="blah">
-      <t.TonConnectButton className="pos-center-x"/>
-      {wallet && <button onClick={sendTon}>Send 1 TON</button>}
+    <div className="w-full">
+      {
+        !wallet
+        ? <t.TonConnectButton className="pos-center-x wm-8"/>
+        : <button onClick={sendTon} className="pos-center-x wm-8">
+          Send Payment
+        </button>
+      }
     </div>
   )
 }
