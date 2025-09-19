@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ads Manager Telegram Bot 🤖 — TON Connect</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    
+    <style>
+      .w-full {
+        width: 100%;
+      }
+      .pos-center-x {
+        margin: 0 50%;
+        transform: translateX(-50%);
+      }
+      :root {
+        --image-url-ads-opt-pay-icon: url('data:image/svg+xml,%3Csvg%20height%3D%22125%22%20viewBox%3D%220%200%20200%20125%22%20width%3D%22200%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%3E%3Cdefs%3E%3Cpath%20id%3D%22premium-star%22%20d%3D%22M%20-2.02%201.1%20L%20-5.49%200.62%20C%20-5.81%200.58%20-6%200.4%20-5.99%20-0.04%20C%20-5.96%20-0.31%20-5.75%20-0.51%20-5.49%20-0.55%20L%20-2.02%20-1.02%20C%20-1.53%20-1.09%20-1.15%20-1.47%20-1.08%20-1.96%20L%20-0.61%20-5.43%20C%20-0.56%20-5.75%20-0.27%20-5.98%200.06%20-5.93%20C%200.32%20-5.9%200.53%20-5.69%200.56%20-5.43%20L%201.04%20-1.96%20C%201.11%20-1.47%201.49%20-1.09%201.97%20-1.02%20L%205.44%20-0.55%20C%205.77%20-0.51%205.99%20-0.21%205.95%200.12%20C%205.91%200.38%205.71%200.59%205.44%200.62%20L%201.97%201.1%20C%201.49%201.16%201.11%201.55%201.04%202.03%20L%200.56%205.5%20C%200.52%205.82%200.22%206.05%20-0.1%206.01%20C%20-0.37%205.97%20-0.57%205.76%20-0.61%205.5%20L%20-1.08%202.03%20C%20-1.15%201.55%20-1.53%201.16%20-2.02%201.1%20Z%22%2F%3E%3C%2Fdefs%3E%3Cstyle%3Esvg%26gt%3Bg%7Btransform%3Ascale%28var%28--s%2C1%29%29%20translate%28var%28--x%29%2Cvar%28--y%29%29%3Btransform-origin%3Avar%28--x%29%20var%28--y%29%3Bopacity%3Avar%28--o%2C1%29%3Bfill%3A%23219cfb%3B--k%3Acalc%28-1%20%2A%20var%28--i%29%29%3B--bdur%3Avar%28--d%2C3s%29%3B--bdel%3Acalc%28.2s%20%2A%20var%28--k%29%29%3B--mdur%3Acalc%2810%20%2A%20var%28--bdur%29%29%3B--mdel%3Acalc%28var%28--bdel%29%20%2B%20calc%28var%28--bdur%29%20%2A%20var%28--k%29%29%29%7Dg%26gt%3Bg%7Banimation%3Avar%28--mdur%29%20steps%281%29%20var%28--mdel%29%20infinite%20move%7Dg%26gt%3Bg%26gt%3Buse%7Banimation%3Avar%28--bdur%29%20ease%20var%28--bdel%29%20infinite%20blink%7D%40keyframes%20blink%7B0%25%2Cto%7Bopacity%3A0%3Btransform%3Ascale%28.1%29%7D45%25%2C55%25%7Bopacity%3A1%3Btransform%3Ascale%281%29%7D%7D%40keyframes%20move%7B0%25%2Cto%7Btransform%3Atranslate%280%2C0%29%7D10%25%7Btransform%3Atranslate%28-4.7px%2C3.7px%29%7D20%25%7Btransform%3Atranslate%28-3.7px%2C-4.7px%29%7D30%25%7Btransform%3Atranslate%28-3px%2C0px%29%7D40%25%7Btransform%3Atranslate%283.5px%2C.2px%29%7D50%25%7Btransform%3Atranslate%28-1.3px%2C-.5px%29%7D60%25%7Btransform%3Atranslate%280px%2C-.7px%29%7D70%25%7Btransform%3Atranslate%28-4.8px%2C3px%29%7D80%25%7Btransform%3Atranslate%282.4px%2C.7px%29%7D90%25%7Btransform%3Atranslate%28-2.1px%2C3.3px%29%7D%7D%3C%2Fstyle%3E%3Cg%20style%3D%22--x%3A52.8px%3B--y%3A85.1px%3B--i%3A0%3B--d%3A4.2s%22%3E%3Cg%3E%3Cuse%20xlink%3Ahref%3D%22%23premium-star%22%2F%3E%3C%2Fg%3E%3C%2Fg%3E%3Cg%20style%3D%22--x%3A65.3px%3B--y%3A26.3px%3B--i%3A1%3B--d%3A4.9s%22%3E%3Cg%3E%3Cuse%20xlink%3Ahref%3D%22%23premium-star%22%2F%3E%3C%2Fg%3E%3C%2Fg%3E%3Cg%20style%3D%22--x%3A150.6px%3B--y%3A81.7px%3B--s%3A0.8%3B--i%3A2%3B--d%3A4.0s%22%3E%3Cg%3E%3Cuse%20xlink%3Ahref%3D%22%23premium-star%22%2F%3E%3C%2Fg%3E%3C%2Fg%3E%3Cg%20style%3D%22--x%3A114.6px%3B--y%3A15.8px%3B--s%3A0.8%3B--i%3A3%3B--d%3A3.1s%22%3E%3Cg%3E%3Cuse%20xlink%3Ahref%3D%22%23premium-star%22%2F%3E%3C%2Fg%3E%3C%2Fg%3E%3Cg%20style%3D%22--x%3A144.3px%3B--y%3A29.7px%3B--o%3A0.4%3B--i%3A4%3B--d%3A4.6s%22%3E%3Cg%3E%3Cuse%20xlink%3Ahref%3D%22%23premium-star%22%2F%3E%3C%2Fg%3E%3C%2Fg%3E%3Cg%20style%3D%22--x%3A171.3px%3B--y%3A56.3px%3B--o%3A0.4%3B--i%3A5%3B--d%3A3.7s%22%3E%3Cg%3E%3Cuse%20xlink%3Ahref%3D%22%23premium-star%22%2F%3E%3C%2Fg%3E%3C%2Fg%3E%3Cg%20style%3D%22--x%3A42.3px%3B--y%3A46.3px%3B--s%3A0.8%3B--o%3A0.35%3B--i%3A6%3B--d%3A3.8s%22%3E%3Cg%3E%3Cuse%20xlink%3Ahref%3D%22%23premium-star%22%2F%3E%3C%2Fg%3E%3C%2Fg%3E%3Cg%20style%3D%22--x%3A128.5px%3B--y%3A108px%3B--s%3A0.724%3B--o%3A0.35%3B--i%3A7%3B--d%3A4.2s%22%3E%3Cg%3E%3Cuse%20xlink%3Ahref%3D%22%23premium-star%22%2F%3E%3C%2Fg%3E%3C%2Fg%3E%3Cg%20style%3D%22--x%3A24px%3B--y%3A67.5px%3B--s%3A0.5%3B--o%3A0.33%3B--i%3A8%3B--d%3A3.8s%22%3E%3Cg%3E%3Cuse%20xlink%3Ahref%3D%22%23premium-star%22%2F%3E%3C%2Fg%3E%3C%2Fg%3E%3Cg%20style%3D%22--x%3A99px%3B--y%3A107.4px%3B--s%3A0.5%3B--o%3A0.33%3B--i%3A9%3B--d%3A3.7s%22%3E%3Cg%3E%3Cuse%20xlink%3Ahref%3D%22%23premium-star%22%2F%3E%3C%2Fg%3E%3C%2Fg%3E%3Cg%20id%3D%22Adv%22%20stroke%3D%22none%22%20stroke-width%3D%221%22%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cpath%20d%3D%22M103%2028.74C123.98%2028.74%20141%2044.22%20141%2063.3%20141%2082.39%20123.98%2097.87%20103%2097.87%2097.11%2097.87%2091.53%2096.65%2086.56%2094.47%2085.28%2095.45%2084.12%2096.2%2083.08%2096.74%2079.56%2098.53%2077.2%2099.17%2071.84%2099.73%2070.39%2099.88%2069.42%2098.59%2070.55%2097.47%2072.97%2095.07%2074.31%2090.83%2075.02%2086.69%2068.8%2080.54%2065%2072.32%2065%2063.3%2065%2044.22%2082.01%2028.74%20103%2028.74Z%22%20id%3D%22Combined-Shape%22%20fill%3D%22%23219CFB%22%2F%3E%3Cpath%20d%3D%22M101.53%2071.65C102.15%2072.1%20102.48%2072.44%20102.53%2072.65%20103.08%2075.3%20103.5%2077.31%20103.8%2078.69%20104.05%2081.13%20103.35%2083.35%20101.35%2083.66%20101.28%2083.67%20101.21%2083.67%20101.14%2083.68L100.75%2083.71C98.68%2083.88%2096.74%2082.44%2095.9%2080.11%2093.74%2076.71%2092.35%2074.16%2091.74%2072.45%2091.68%2072.28%2091.89%2072.01%2092.37%2071.65L101.53%2071.65ZM88.96%2053.38%2099.44%2053.38C101.18%2053.38%20102.59%2054.79%20102.59%2056.53L102.59%2066.21C102.59%2067.95%20101.18%2069.36%2099.44%2069.36L88.96%2069.36C85.48%2069.36%2082.66%2066.54%2082.66%2063.06L82.66%2059.68C82.66%2056.2%2085.48%2053.38%2088.96%2053.38ZM106.45%2052.38%20114.59%2046.95C116.23%2045.86%20118.44%2046.31%20119.53%2047.94%20119.92%2048.53%20120.12%2049.21%20120.12%2049.91L120.12%2071.88C120.12%2073.84%20118.53%2075.43%20116.57%2075.43%20115.93%2075.43%20115.31%2075.27%20114.77%2074.95L106.59%2070.16C105.71%2069.65%20105.18%2068.72%20105.18%2067.71L105.18%2054.75C105.18%2053.8%20105.65%2052.91%20106.45%2052.38Z%22%20id%3D%22Combined-Shape%22%20fill%3D%22%23FFF%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E');
+      }
+      .tm-premium-opt-icon {
+        display: inline-block;
+        width: 200px;
+        height: 125px;
+        vertical-align: top;
+        background-position: 0 0;
+        background-repeat: no-repeat;
+      }
+      .tm-premium-opt-icon-gift {
+        background-image: var(--image-url-premium-opt-gift-icon);
+      }
+      .tm-premium-opt-icon-giveaway {
+        background-image: var(--image-url-premium-opt-giveaway-icon);
+      }
+      .tm-premium-opt-icon-pay {
+        background-image: var(--image-url-ads-opt-pay-icon);
+      }
+    </style>
+    <script type="module" crossorigin src="./assets/index-28c3e688.js"></script>
+  </head>
+  <body class="min-h-screen bg-slate-800 text-white p-5" style="background: rgb(26, 32, 38);">
+    <div id="root"></div>
+  </body>
+</html> 

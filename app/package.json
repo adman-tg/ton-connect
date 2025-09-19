@@ -1,0 +1,31 @@
+{
+  "name": "adman-tg-ton-connect",
+  "private": true,
+  "version": "0.0.1",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@esbuild-plugins/node-globals-polyfill": "^0.2.3",
+    "@mitranim/js": "^0.1.85",
+    "@rollup/plugin-inject": "^5.0.5",
+    "@ton/core": "^0.61.0",
+    "@ton/crypto": "^3.3.0",
+    "@tonconnect/ui-react": "^2.2.0",
+    "buffer": "^6.0.3",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "rollup": "^4.51.0",
+    "vite-plugin-node-polyfills": "^0.24.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.24",
+    "@types/react-dom": "^18.2.8",
+    "@vitejs/plugin-react": "^4.1.0",
+    "typescript": "^5.4.5",
+    "vite": "^4.5.0"
+  }
+}
