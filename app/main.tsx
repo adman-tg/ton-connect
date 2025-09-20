@@ -19,25 +19,39 @@ const RECEIVER = `UQC66pKa-6mINNx3VKC9tY68Vr_3Q2h6Ybzq-Ktbuv0_w9XM`
 function WalletActions() {
   const url = new a.Url(window.location)
 
+  const amount = url.query.get(`amount`)
+  const tgOwnerId = url.query.get(`tgOwnerId`)
+  const descr = url.query.get(`descr`)
+  const title = url.query.get(`title`)
+  const image = url.query.get(`image`)
+
+  if (!amount || !tgOwnerId) {
+    return (
+      <div className="min-h-screen text-white" style={{background: 'rgb(26, 32, 38)'}}>
+        <div className="max-w-lg mx-auto text-center">
+          <a href="https://t.me/adman_tg_bot" className="text-2xl font-semibold" style={{color: '#4A90E2'}}>
+            @adman_tg_bot
+          </a>
+      </div>
+    </div>
+    )
+  }
+
+  const payload = encodePayload(JSON.stringify({tgOwnerId}))
+
   const [tonConnectUI] = t.useTonConnectUI()
   const wallet = t.useTonWallet()
 
   const [isHovered, setIsHovered] = React.useState(false);
   const [isPressed, setIsPressed] = React.useState(false);
 
-  const amount = url.query.get(`amount`)
-  const params = {
-    TgAccount: url.query.get(`tg_account`)
-  }
-
-  const payload = encodePayload(JSON.stringify(params))
 
   const sendTon = async () => {
     await tonConnectUI.sendTransaction({
       messages: [{
         address: RECEIVER,
         amount: toNano(amount).toString(),
-        payload: payload,
+        payload,
       }],
       validUntil: dateAddMinutes(5),
     })
@@ -61,28 +75,30 @@ function WalletActions() {
           </div>
 
           {/* Ads Manager Account Section */}
-          {false &&
-            <div className="mb-10">
-              <h2 className="text-xl font-medium mb-2">Ads Manager account</h2>
-              <div
-                className="rounded-xl p-2 mb-10"
-                style={{
-                  background: 'rgba(255, 255, 255, 0.04)',
-                  backdropFilter: 'blur(10px)',
-                  border: '1px solid rgba(255, 255, 255, 0.1)'
-                }}
-              >
-                <div className="flex items-center gap-4">
-                  <div
-                    className="w-8 h-8 rounded-full flex items-center justify-center text-xs font-semibold text-white"
-                    style={{background: 'linear-gradient(45deg, #667eea 0%, #764ba2 100%)'}}>
-                    IM
-                  </div>
-                  <div className="text-md font-medium">Account Name</div>
+          <div className="mb-10">
+            <h2 className="text-xl font-medium mb-2">Ads Manager account</h2>
+            <div
+              className="rounded-xl p-2 mb-10"
+              style={{
+                background: 'rgba(255, 255, 255, 0.04)',
+                backdropFilter: 'blur(10px)',
+                border: '1px solid rgba(255, 255, 255, 0.1)'
+              }}
+            >
+              <div className="flex items-center gap-4">
+                <div
+                  className="w-8 h-8 rounded-full flex items-center justify-center text-xs font-semibold text-white"
+                  style={{
+                    background: 'url("' + image + '")',
+                    backgroundSize: 'contain',
+                  }}>
                 </div>
+                <div className="text-md font-medium">{title}</div>
+                —
+                <div className="text-md font-medium">{descr}</div>
               </div>
             </div>
-          }
+          </div>
 
           <div className="mb-8">
             <h2 className="text-xl font-medium mb-2">Amount</h2>
@@ -150,29 +166,6 @@ function WalletActions() {
           </div>
         </div>
       </div>
-
-      {
-        <button
-          className="w-full py-5 px-8 text-lg font-semibold text-white border-none rounded-xl cursor-pointer transition-all duration-300 mb-8"
-          style={{
-            background: isHovered && !isPressed
-              ? 'linear-gradient(45deg, #357abd 0%, #2968a3 100%)'
-              : 'linear-gradient(45deg, #4A90E2 0%, #357abd 100%)',
-            transform: isHovered && !isPressed ? 'translateY(-4px)' : 'translateY(0)',
-            boxShadow: isHovered && !isPressed ? '0 8px 25px rgba(74, 144, 226, 0.3)' : 'none'
-          }}
-          onMouseEnter={() => setIsHovered(true)}
-          onMouseLeave={() => {
-            setIsHovered(false);
-            setIsPressed(false);
-          }}
-          onMouseDown={() => setIsPressed(true)}
-          onMouseUp={() => setIsPressed(false)}
-          onClick={sendTon}
-        >
-          SendPayment
-        </button>
-      }
     </>
   )
 }
