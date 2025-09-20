@@ -20,12 +20,12 @@ function WalletActions() {
   const url = new a.Url(window.location)
 
   const amount = url.query.get(`amount`)
-  const tgOwnerId = url.query.get(`tgOwnerId`)
-  const descr = url.query.get(`descr`)
-  const title = url.query.get(`title`)
-  const image = url.query.get(`image`)
+  const ref    = url.query.get(`ref`)
+  const descr  = url.query.get(`descr`)
+  const title  = url.query.get(`title`)
+  const image  = url.query.get(`image`)
 
-  if (!amount || !tgOwnerId) {
+  if (!amount || !ref) {
     return (
       <div className="min-h-screen text-white" style={{background: 'rgb(26, 32, 38)'}}>
         <div className="max-w-lg mx-auto text-center">
@@ -37,7 +37,7 @@ function WalletActions() {
     )
   }
 
-  const payload = encodePayload(JSON.stringify({tgOwnerId}))
+  const payload = encodePayload(JSON.stringify({ref}))
 
   const [tonConnectUI] = t.useTonConnectUI()
   const wallet = t.useTonWallet()
