@@ -3,8 +3,6 @@ import ReactDOM from 'react-dom/client'
 import * as t from '@tonconnect/ui-react'
 import { beginCell, toNano } from '@ton/core'
 
-const manifestUrl=`https://adman-tg.github.io/ton-connect/manifest.json`
-
 const root = document.getElementById('root') as HTMLElement
 
 ReactDOM
@@ -123,40 +121,40 @@ function WalletActions() {
             </div>
           </div>
 
-          {/* Add Funds Button */}
-          <button
-            className="w-full py-5 px-8 text-lg font-semibold text-white border-none rounded-xl cursor-pointer transition-all duration-300 mb-8"
-            style={{
-              background: isHovered && !isPressed
-                ? 'linear-gradient(45deg, #357abd 0%, #2968a3 100%)'
-                : 'linear-gradient(45deg, #4A90E2 0%, #357abd 100%)',
-              transform: isHovered && !isPressed ? 'translateY(-4px)' : 'translateY(0)',
-              boxShadow: isHovered && !isPressed ? '0 8px 25px rgba(74, 144, 226, 0.3)' : 'none'
-            }}
-            onMouseEnter={() => setIsHovered(true)}
-            onMouseLeave={() => {
-              setIsHovered(false);
-              setIsPressed(false);
-            }}
-            onMouseDown={() => setIsPressed(true)}
-            onMouseUp={() => setIsPressed(false)}
-            onClick={sendTon}
-          >
-            Add Funds
-          </button>
+          <div className="flex flex-col items-center">
+          {
+            wallet &&
+            <button
+                className="py-3 px-20 text text-white border-none rounded-xl cursor-pointer transition-all duration-300 mb-8"
+                style={{
+                  background: 'linear-gradient(45deg, #4A90E2 0%, #357abd 100%)'
+                }}
+                onMouseEnter={() => setIsHovered(true)}
+                onMouseLeave={() => {
+                  setIsHovered(false);
+                  setIsPressed(false);
+                }}
+                onMouseDown={() => setIsPressed(true)}
+                onMouseUp={() => setIsPressed(false)}
+                onClick={sendTon} >
+                Add Funds
+              </button>
+          }
+          <t.TonConnectButton className="text-center mb-8"/>
+          </div>
 
           {/* Transaction History Link */}
           <div className="text-center">
-            <a href="#" className="text-base font-medium hover:underline" style={{color: '#4A90E2'}}>
+            <a href="#"
+              className="text-base font-medium hover:underline"
+              style={{color: '#4A90E2'}}>
               View Transactions History
             </a>
           </div>
         </div>
       </div>
 
-      <t.TonConnectButton className="pos-center-x wm-8"/>
       {
-        wallet &&
         <button
           className="w-full py-5 px-8 text-lg font-semibold text-white border-none rounded-xl cursor-pointer transition-all duration-300 mb-8"
           style={{
@@ -184,7 +182,7 @@ function WalletActions() {
 
 export default function App() {
   return (
-    <t.TonConnectUIProvider manifestUrl>
+    <t.TonConnectUIProvider manifestUrl="https://adman-tg.github.io/ton-connect/manifest.json">
       <WalletActions />
     </t.TonConnectUIProvider>
   )
