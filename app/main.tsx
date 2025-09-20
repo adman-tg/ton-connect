@@ -2,6 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import * as t from '@tonconnect/ui-react'
 import { beginCell, toNano } from '@ton/core'
+import * as a from '@mitranim/js/all.mjs'
 
 const root = document.getElementById('root') as HTMLElement
 
@@ -13,29 +14,33 @@ ReactDOM
     </React.StrictMode>
   )
 
+const RECEIVER = `UQC66pKa-6mINNx3VKC9tY68Vr_3Q2h6Ybzq-Ktbuv0_w9XM`
+
 function WalletActions() {
+  const url = new a.Url(window.location)
+
   const [tonConnectUI] = t.useTonConnectUI()
   const wallet = t.useTonWallet()
 
   const [isHovered, setIsHovered] = React.useState(false);
   const [isPressed, setIsPressed] = React.useState(false);
 
-  const amount = 0.3
-  const receiver = `UQC66pKa-6mINNx3VKC9tY68Vr_3Q2h6Ybzq-Ktbuv0_w9XM`
+  const amount = url.query.get(`amount`)
+  const params = {
+    TgAccount: url.query.get(`tg_account`)
+  }
+
+  const payload = encodePayload(JSON.stringify(params))
 
   const sendTon = async () => {
-    // const receiver = wallet.account.address,
-
-    const payload = encodePayload(`{"TgId": "1234567"}`)
-    const validUntil = dateAddMinutes(5)
-
-    const messages = [{
-      address: receiver,
-      amount: toNano(amount).toString(),
-      payload: payload,
-    }]
-
-    await tonConnectUI.sendTransaction({validUntil, messages})
+    await tonConnectUI.sendTransaction({
+      messages: [{
+        address: RECEIVER,
+        amount: toNano(amount).toString(),
+        payload: payload,
+      }],
+      validUntil: dateAddMinutes(5),
+    })
   }
 
   return (
@@ -106,7 +111,7 @@ function WalletActions() {
                 This amount will be sent to the selected Ads Manager account. To learn more
                 about the ways to obtain and store TON required for this transfer,
                 <a href="https://wallet.tg/" className="font-medium hover:underline mx-1" style={{color: '#4A90E2'}}>
-                  click here &gt;
+                  click&nbsp;here &gt;
                 </a>
               </p>
             </div>
@@ -136,7 +141,7 @@ function WalletActions() {
 
           {/* Transaction History Link */}
           <div className="text-center">
-            <a href={"https://tonviewer.com/"+receiver}
+            <a href={"https://tonviewer.com/"+RECEIVER}
               className="text-base font-medium hover:underline"
               target="_blank"
               style={{color: '#4A90E2'}}>
