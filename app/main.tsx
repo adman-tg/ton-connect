@@ -19,8 +19,12 @@ function WalletActions() {
   const [tonConnectUI] = t.useTonConnectUI()
   const wallet = t.useTonWallet()
 
+  const [isHovered, setIsHovered] = React.useState(false);
+  const [isPressed, setIsPressed] = React.useState(false);
+
+  const amount = 0.3
+
   const sendTon = async () => {
-    const amount = 0.3
 
     const receiver = `UQC66pKa-6mINNx3VKC9tY68Vr_3Q2h6Ybzq-Ktbuv0_w9XM`
     // const receiver = wallet.account.address,
@@ -38,15 +42,141 @@ function WalletActions() {
   }
 
   return (
-    <div className="w-full">
+    <>
+      <div className="min-h-screen text-white p-4" style={{background: 'rgb(26, 32, 38)'}}>
+        <div className="max-w-2xl mx-auto py-10 px-5">
+          {/* Header */}
+          <div className="text-center mb-16">
+            <h1 className="text-2xl font-semibold mb-5">Pay for Ads Manager Telegram Bot 🤖</h1>
+            <p className="text text-gray-400 leading-relaxed">
+              Use your crypto wallet to send toncoins to your
+              <a href="https://t.me/adman_tg_bot" className="font-medium hover:underline mx-1" style={{color: '#4A90E2'}}>
+                @adman_tg_bot
+              </a>
+              account.
+            </p>
+          </div>
+
+          {/* Ads Manager Account Section */}
+          <div className="mb-10">
+            <h2 className="text-xl font-medium mb-5">Ads Manager account</h2>
+            <div
+              className="rounded-xl p-2 mb-10"
+              style={{
+                background: 'rgba(255, 255, 255, 0.04)',
+                backdropFilter: 'blur(10px)',
+                border: '1px solid rgba(255, 255, 255, 0.1)'
+              }}
+            >
+              <div className="flex items-center gap-4">
+                <div
+                  className="w-8 h-8 rounded-full flex items-center justify-center text-xs font-semibold text-white"
+                  style={{background: 'linear-gradient(45deg, #667eea 0%, #764ba2 100%)'}}
+                >
+                  YE
+                </div>
+                <div className="text-md font-medium">Yury Egorenkov</div>
+              </div>
+            </div>
+          </div>
+
+          <div className="mb-8">
+            <h2 className="text-xl font-medium mb-2">Amount</h2>
+            <div className="mb-5">
+              <div className="relative mb-5">
+                <div
+                  className="absolute left-4 top-1/2 transform -translate-y-1/2 w-6 h-6 rounded-md flex items-center justify-center text-xs font-bold text-white"
+                  style={{backgroundColor: '#4A90E2'}}
+                >
+                  T
+                </div>
+                <input
+                  type="text"
+                  placeholder="Enter any amount in TON"
+                  value={amount}
+                  readOnly={true}
+                  onChange={(e) => setAmount(e.target.value)}
+                  className="w-full pl-14 p-2 text-base text-white placeholder-gray-500 outline-none transition-all duration-300 rounded-xl"
+                  style={{
+                    background: 'rgba(255, 255, 255, 0.04)',
+                    border: '1px solid rgba(255, 255, 255, 0.15)'
+                  }}
+                  onFocus={(e) => {
+                    e.target.style.borderColor = '#4A90E2';
+                    e.target.style.background = 'rgba(255, 255, 255, 0.1)';
+                  }}
+                  onBlur={(e) => {
+                    e.target.style.borderColor = 'rgba(255, 255, 255, 0.15)';
+                    e.target.style.background = 'rgba(255, 255, 255, 0.06)';
+                  }}
+                />
+              </div>
+              <p className="text-sm text-gray-300 leading-relaxed">
+                This amount will be sent to the selected Ads Manager account. To learn more
+                about the ways to obtain and store TON required for this transfer,
+                <a href="#" className="font-medium hover:underline mx-1" style={{color: '#4A90E2'}}>
+                  click here &gt;
+                </a>
+              </p>
+            </div>
+          </div>
+
+          {/* Add Funds Button */}
+          <button
+            className="w-full py-5 px-8 text-lg font-semibold text-white border-none rounded-xl cursor-pointer transition-all duration-300 mb-8"
+            style={{
+              background: isHovered && !isPressed
+                ? 'linear-gradient(45deg, #357abd 0%, #2968a3 100%)'
+                : 'linear-gradient(45deg, #4A90E2 0%, #357abd 100%)',
+              transform: isHovered && !isPressed ? 'translateY(-4px)' : 'translateY(0)',
+              boxShadow: isHovered && !isPressed ? '0 8px 25px rgba(74, 144, 226, 0.3)' : 'none'
+            }}
+            onMouseEnter={() => setIsHovered(true)}
+            onMouseLeave={() => {
+              setIsHovered(false);
+              setIsPressed(false);
+            }}
+            onMouseDown={() => setIsPressed(true)}
+            onMouseUp={() => setIsPressed(false)}
+            onClick={sendTon}
+          >
+            Add Funds
+          </button>
+
+          {/* Transaction History Link */}
+          <div className="text-center">
+            <a href="#" className="text-base font-medium hover:underline" style={{color: '#4A90E2'}}>
+              View Transactions History
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <t.TonConnectButton className="pos-center-x wm-8"/>
       {
-        !wallet
-        ? <t.TonConnectButton className="pos-center-x wm-8"/>
-        : <button onClick={sendTon} className="pos-center-x wm-8">
-          Send Payment
+        wallet &&
+        <button
+          className="w-full py-5 px-8 text-lg font-semibold text-white border-none rounded-xl cursor-pointer transition-all duration-300 mb-8"
+          style={{
+            background: isHovered && !isPressed
+              ? 'linear-gradient(45deg, #357abd 0%, #2968a3 100%)'
+              : 'linear-gradient(45deg, #4A90E2 0%, #357abd 100%)',
+            transform: isHovered && !isPressed ? 'translateY(-4px)' : 'translateY(0)',
+            boxShadow: isHovered && !isPressed ? '0 8px 25px rgba(74, 144, 226, 0.3)' : 'none'
+          }}
+          onMouseEnter={() => setIsHovered(true)}
+          onMouseLeave={() => {
+            setIsHovered(false);
+            setIsPressed(false);
+          }}
+          onMouseDown={() => setIsPressed(true)}
+          onMouseUp={() => setIsPressed(false)}
+          onClick={sendTon}
+        >
+          SendPayment
         </button>
       }
-    </div>
+    </>
   )
 }
 
