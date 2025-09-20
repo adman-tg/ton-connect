@@ -58,27 +58,29 @@ function WalletActions() {
           </div>
 
           {/* Ads Manager Account Section */}
-          <div className="mb-10">
-            <h2 className="text-xl font-medium mb-5">Ads Manager account</h2>
-            <div
-              className="rounded-xl p-2 mb-10"
-              style={{
-                background: 'rgba(255, 255, 255, 0.04)',
-                backdropFilter: 'blur(10px)',
-                border: '1px solid rgba(255, 255, 255, 0.1)'
-              }}
-            >
-              <div className="flex items-center gap-4">
-                <div
-                  className="w-8 h-8 rounded-full flex items-center justify-center text-xs font-semibold text-white"
-                  style={{background: 'linear-gradient(45deg, #667eea 0%, #764ba2 100%)'}}
-                >
-                  YE
+          {false &&
+            <div className="mb-10">
+              <h2 className="text-xl font-medium mb-5">Ads Manager account</h2>
+              <div
+                className="rounded-xl p-2 mb-10"
+                style={{
+                  background: 'rgba(255, 255, 255, 0.04)',
+                  backdropFilter: 'blur(10px)',
+                  border: '1px solid rgba(255, 255, 255, 0.1)'
+                }}
+              >
+                <div className="flex items-center gap-4">
+                  <div
+                    className="w-8 h-8 rounded-full flex items-center justify-center text-xs font-semibold text-white"
+                    style={{background: 'linear-gradient(45deg, #667eea 0%, #764ba2 100%)'}}
+                  >
+                    IM
+                  </div>
+                  <div className="text-md font-medium">Account Name</div>
                 </div>
-                <div className="text-md font-medium">Yury Egorenkov</div>
               </div>
             </div>
-          </div>
+          }
 
           <div className="mb-8">
             <h2 className="text-xl font-medium mb-2">Amount</h2>
@@ -114,7 +116,7 @@ function WalletActions() {
               <p className="text-sm text-gray-300 leading-relaxed">
                 This amount will be sent to the selected Ads Manager account. To learn more
                 about the ways to obtain and store TON required for this transfer,
-                <a href="#" className="font-medium hover:underline mx-1" style={{color: '#4A90E2'}}>
+                <a href="https://wallet.tg/" className="font-medium hover:underline mx-1" style={{color: '#4A90E2'}}>
                   click here &gt;
                 </a>
               </p>
