@@ -41,10 +41,10 @@ function WalletActions() {
 
   return (
     <>
-      <div className="min-h-screen text-white p-4" style={{background: 'rgb(26, 32, 38)'}}>
-        <div className="max-w-2xl mx-auto py-10 px-5">
+      <div className="min-h-screen text-white" style={{background: 'rgb(26, 32, 38)'}}>
+        <div className="max-w-lg mx-auto p-10">
           {/* Header */}
-          <div className="text-center mb-16">
+          <div className="text-center mb-10">
             <h1 className="text-2xl font-semibold mb-5">Pay for Ads Manager Telegram Bot 🤖</h1>
             <p className="text text-gray-400 leading-relaxed">
               Use your crypto wallet to send toncoins to your
@@ -137,7 +137,7 @@ function WalletActions() {
                 onMouseDown={() => setIsPressed(true)}
                 onMouseUp={() => setIsPressed(false)}
                 onClick={sendTon} >
-                Add Funds
+                Send Funds
               </button>
           }
           <t.TonConnectButton className="text-center mb-8"/>
