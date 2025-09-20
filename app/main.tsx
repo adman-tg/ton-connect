@@ -42,9 +42,10 @@ function WalletActions() {
   return (
     <>
       <div className="min-h-screen text-white" style={{background: 'rgb(26, 32, 38)'}}>
-        <div className="max-w-lg mx-auto p-10">
+        <div className="max-w-lg mx-auto">
           {/* Header */}
           <div className="text-center mb-10">
+            <i className="tm-premium-opt-icon tm-premium-opt-icon-pay"></i>
             <h1 className="text-2xl font-semibold mb-5">Pay for Ads Manager Telegram Bot 🤖</h1>
             <p className="text text-gray-400 leading-relaxed">
               Use your crypto wallet to send toncoins to your
@@ -58,7 +59,7 @@ function WalletActions() {
           {/* Ads Manager Account Section */}
           {false &&
             <div className="mb-10">
-              <h2 className="text-xl font-medium mb-5">Ads Manager account</h2>
+              <h2 className="text-xl font-medium mb-2">Ads Manager account</h2>
               <div
                 className="rounded-xl p-2 mb-10"
                 style={{
@@ -70,8 +71,7 @@ function WalletActions() {
                 <div className="flex items-center gap-4">
                   <div
                     className="w-8 h-8 rounded-full flex items-center justify-center text-xs font-semibold text-white"
-                    style={{background: 'linear-gradient(45deg, #667eea 0%, #764ba2 100%)'}}
-                  >
+                    style={{background: 'linear-gradient(45deg, #667eea 0%, #764ba2 100%)'}}>
                     IM
                   </div>
                   <div className="text-md font-medium">Account Name</div>
@@ -83,33 +83,25 @@ function WalletActions() {
           <div className="mb-8">
             <h2 className="text-xl font-medium mb-2">Amount</h2>
             <div className="mb-5">
-              <div className="relative mb-5">
-                <div
-                  className="absolute left-4 top-1/2 transform -translate-y-1/2 w-6 h-6 rounded-md flex items-center justify-center text-xs font-bold text-white"
-                  style={{backgroundColor: '#4A90E2'}}
-                >
-                  T
+              <div
+                className="rounded-xl p-2 mb-10"
+                style={{
+                  background: 'rgba(255, 255, 255, 0.04)',
+                  backdropFilter: 'blur(10px)',
+                  border: '1px solid rgba(255, 255, 255, 0.1)'
+                }}
+              >
+                <div className="flex items-center gap-4">
+                  <div
+                    className="w-8 h-8 rounded-full flex items-center justify-center text-xs font-semibold text-white"
+                    style={{
+                      backgroundImage: 'url("./static/ton-symbol.svg")',
+                      backgroundPosition: 'center',
+                      backgroundSize: 'contain',
+                    }}>
+                  </div>
+                  <div className="text-md font-medium">Account Name</div>
                 </div>
-                <input
-                  type="text"
-                  placeholder="Enter any amount in TON"
-                  value={amount}
-                  readOnly={true}
-                  onChange={(e) => setAmount(e.target.value)}
-                  className="w-full pl-14 p-2 text-base text-white placeholder-gray-500 outline-none transition-all duration-300 rounded-xl"
-                  style={{
-                    background: 'rgba(255, 255, 255, 0.04)',
-                    border: '1px solid rgba(255, 255, 255, 0.15)'
-                  }}
-                  onFocus={(e) => {
-                    e.target.style.borderColor = '#4A90E2';
-                    e.target.style.background = 'rgba(255, 255, 255, 0.1)';
-                  }}
-                  onBlur={(e) => {
-                    e.target.style.borderColor = 'rgba(255, 255, 255, 0.15)';
-                    e.target.style.background = 'rgba(255, 255, 255, 0.06)';
-                  }}
-                />
               </div>
               <p className="text-sm text-gray-300 leading-relaxed">
                 This amount will be sent to the selected Ads Manager account. To learn more
