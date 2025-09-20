@@ -21,10 +21,9 @@ function WalletActions() {
   const [isPressed, setIsPressed] = React.useState(false);
 
   const amount = 0.3
+  const receiver = `UQC66pKa-6mINNx3VKC9tY68Vr_3Q2h6Ybzq-Ktbuv0_w9XM`
 
   const sendTon = async () => {
-
-    const receiver = `UQC66pKa-6mINNx3VKC9tY68Vr_3Q2h6Ybzq-Ktbuv0_w9XM`
     // const receiver = wallet.account.address,
 
     const payload = encodePayload(`{"TgId": "1234567"}`)
@@ -100,7 +99,7 @@ function WalletActions() {
                       backgroundSize: 'contain',
                     }}>
                   </div>
-                  <div className="text-md font-medium">Account Name</div>
+                  <div className="text-md font-medium">{amount}</div>
                 </div>
               </div>
               <p className="text-sm text-gray-300 leading-relaxed">
@@ -137,8 +136,9 @@ function WalletActions() {
 
           {/* Transaction History Link */}
           <div className="text-center">
-            <a href="#"
+            <a href={"https://tonviewer.com/"+receiver}
               className="text-base font-medium hover:underline"
+              target="_blank"
               style={{color: '#4A90E2'}}>
               View Transactions History
             </a>
