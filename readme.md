@@ -1,8 +1,8 @@
-# Ads Manager Telegram Bot 🤖 — TON Connect
+# Adman — Ads Manager Bot 🤖 — TON Connect
 
 [@adman_tg_bot](https://t.me/adman_tg_bot?start&ref=4c72f969)
 
-Accept **TON payments** effortlessly in your Ads Manager Telegram Bot using **TON Connect**. This official integration ensures secure, seamless, and reliable payment processing directly through Telegram.
+Accept **TON payments** effortlessly in your Adman — Ads Manager Bot using **TON Connect**. This official integration ensures secure, seamless, and reliable payment processing directly through Telegram.
 
 ## 🚀 Features
 

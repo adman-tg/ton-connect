@@ -63,8 +63,7 @@ function WalletActions() {
         <div className="max-w-lg mx-auto">
           {/* Header */}
           <div className="text-center mb-10">
-            <i className="tm-premium-opt-icon tm-premium-opt-icon-pay"></i>
-            <h1 className="text-2xl font-semibold mb-5">Pay for Ads Manager Telegram Bot 🤖</h1>
+            <h1 className="text-2xl font-semibold mb-5">Pay for Adman — Ads Manager Bot 🤖</h1>
             <p className="text text-gray-400 leading-relaxed">
               Use your crypto wallet to send toncoins to your
               <a href="https://t.me/adman_tg_bot" className="font-medium hover:underline mx-1" style={{color: '#4A90E2'}}>
@@ -74,96 +73,107 @@ function WalletActions() {
             </p>
           </div>
 
-          {/* Ads Manager Account Section */}
-          <div className="mb-10">
-            <h2 className="text-xl font-medium mb-2">Ads Manager account</h2>
-            <div
-              className="rounded-xl p-2 mb-10"
-              style={{
-                background: 'rgba(255, 255, 255, 0.04)',
-                backdropFilter: 'blur(10px)',
-                border: '1px solid rgba(255, 255, 255, 0.1)'
-              }}
-            >
-              <div className="flex items-center gap-4">
-                <div
-                  className="w-8 h-8 rounded-full flex items-center justify-center text-xs font-semibold text-white"
-                  style={{
-                    background: 'url("' + image + '")',
-                    backgroundSize: 'contain',
-                  }}>
-                </div>
-                <div className="text-md font-medium">{title}</div>
-                —
-                <div className="text-md font-medium">{descr}</div>
-              </div>
-            </div>
-          </div>
-
-          <div className="mb-8">
-            <h2 className="text-xl font-medium mb-2">Amount</h2>
-            <div className="mb-5">
-              <div
-                className="rounded-xl p-2 mb-10"
-                style={{
-                  background: 'rgba(255, 255, 255, 0.04)',
-                  backdropFilter: 'blur(10px)',
-                  border: '1px solid rgba(255, 255, 255, 0.1)'
-                }}
-              >
-                <div className="flex items-center gap-4">
-                  <div
-                    className="w-8 h-8 rounded-full flex items-center justify-center text-xs font-semibold text-white"
-                    style={{
-                      backgroundImage: 'url("./static/ton-symbol.svg")',
-                      backgroundPosition: 'center',
-                      backgroundSize: 'contain',
-                    }}>
-                  </div>
-                  <div className="text-md font-medium">{fromNano(amount)}</div>
-                </div>
-              </div>
-              <p className="text-sm text-gray-300 leading-relaxed">
-                This amount will be sent to the selected Ads Manager account. To learn more
-                about the ways to obtain and store TON required for this transfer,
-                <a href="https://wallet.tg/" className="font-medium hover:underline mx-1" style={{color: '#4A90E2'}}>
-                  click&nbsp;here &gt;
-                </a>
-              </p>
-            </div>
-          </div>
-
-          <div className="flex flex-col items-center">
           {
             wallet &&
-            <button
-                className="py-3 px-20 text text-white border-none rounded-xl cursor-pointer transition-all duration-300 mb-8"
-                style={{
-                  background: 'linear-gradient(45deg, #4A90E2 0%, #357abd 100%)'
-                }}
-                onMouseEnter={() => setIsHovered(true)}
-                onMouseLeave={() => {
-                  setIsHovered(false)
-                  setIsPressed(false)
-                }}
-                onMouseDown={() => setIsPressed(true)}
-                onMouseUp={() => setIsPressed(false)}
-                onClick={sendTon} >
-                Send Funds
-              </button>
+            <>
+              {/* Ads Manager Account Section */}
+              <div className="mb-10">
+                <h2 className="text-xl font-medium mb-2">Ads Manager account</h2>
+                <div
+                  className="rounded-xl p-2 mb-10"
+                  style={{
+                    background: 'rgba(255, 255, 255, 0.04)',
+                    backdropFilter: 'blur(10px)',
+                    border: '1px solid rgba(255, 255, 255, 0.1)'
+                  }}
+                >
+                  <div className="flex items-center gap-4">
+                    <div
+                      className="w-8 h-8 rounded-full flex items-center justify-center text-xs font-semibold text-white"
+                      style={{
+                        background: 'url("' + image + '")',
+                        backgroundSize: 'contain',
+                      }}>
+                    </div>
+                    <div className="text-md font-medium">{title}</div>
+                    —
+                    <div className="text-md font-medium">{descr}</div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="mb-8">
+                <h2 className="text-xl font-medium mb-2">Amount</h2>
+                <div className="mb-5">
+                  <div
+                    className="rounded-xl p-2 mb-10"
+                    style={{
+                      background: 'rgba(255, 255, 255, 0.04)',
+                      backdropFilter: 'blur(10px)',
+                      border: '1px solid rgba(255, 255, 255, 0.1)'
+                    }}
+                  >
+                    <div className="flex items-center gap-4">
+                      <div
+                        className="w-8 h-8 rounded-full flex items-center justify-center text-xs font-semibold text-white"
+                        style={{
+                          backgroundImage: 'url("./static/ton-symbol.svg")',
+                          backgroundPosition: 'center',
+                          backgroundSize: 'contain',
+                        }}>
+                      </div>
+                      <div className="text-md font-medium">{fromNano(amount)}</div>
+                    </div>
+                  </div>
+                  <p className="text-sm text-gray-300 leading-relaxed">
+                    This amount will be sent to the selected Ads Manager account. To learn more
+                    about the ways to obtain and store TON required for this transfer,
+                    <a href="https://wallet.tg/" className="font-medium hover:underline mx-1" style={{color: '#4A90E2'}}>
+                      click&nbsp;here &gt;
+                    </a>
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex flex-col items-center">
+                <button
+                    className="py-3 px-20 text text-white border-none rounded-xl cursor-pointer transition-all duration-300 mb-8"
+                    style={{
+                      background: 'linear-gradient(45deg, #4A90E2 0%, #357abd 100%)'
+                    }}
+                    onMouseEnter={() => setIsHovered(true)}
+                    onMouseLeave={() => {
+                      setIsHovered(false)
+                      setIsPressed(false)
+                    }}
+                    onMouseDown={() => setIsPressed(true)}
+                    onMouseUp={() => setIsPressed(false)}
+                    onClick={sendTon} >
+                    Send Funds
+                  </button>
+              </div>
+            </>
           }
-          <t.TonConnectButton className="text-center mb-8"/>
+
+          <div className="flex flex-col items-center">
+            <t.TonConnectButton className="text-center mb-8"/>
           </div>
 
-          {/* Transaction History Link */}
-          <div className="text-center">
-            <a href={"https://tonviewer.com/"+RECEIVER}
-              className="text-base font-medium hover:underline"
-              target="_blank"
-              style={{color: '#4A90E2'}}>
-              View Transactions History
-            </a>
-          </div>
+          {
+            wallet &&
+            <>
+              {/* Transaction History Link */}
+              <div className="text-center">
+                <a href={"https://tonviewer.com/"+RECEIVER}
+                  className="text-base font-medium hover:underline"
+                  target="_blank"
+                  style={{color: '#4A90E2'}}>
+                  View Transactions History
+                </a>
+              </div>
+
+            </>
+          }
         </div>
       </div>
     </>
